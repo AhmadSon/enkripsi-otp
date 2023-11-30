@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enkripsi dan Dekripsi</title>
 </head>
+
 <body>
     <h2>Enkripsi dan Dekripsi</h2>
 
     <?php
-    function konversiAscii($input_string) {
+    function konversiAscii($input_string)
+    {
         $ascii_values = [];
         for ($i = 0; $i < strlen($input_string); $i++) {
             $ascii_value = ord($input_string[$i]);
@@ -18,17 +21,20 @@
         return $ascii_values;
     }
 
-    function xorBiner($biner1, $biner2) {
+    function xorBiner($biner1, $biner2)
+    {
         $result = bindec($biner1) ^ bindec($biner2);
         $result_biner = str_pad(decbin($result), 8, "0", STR_PAD_LEFT);
         return $result_biner;
     }
 
-    function binerKeDesimal($biner) {
+    function binerKeDesimal($biner)
+    {
         return bindec($biner);
     }
 
-    function kodeAscii($ascii_code) {
+    function kodeAscii($ascii_code)
+    {
         return chr($ascii_code);
     }
 
@@ -70,11 +76,12 @@
         <button type="submit">Enkripsi</button>
     </form>
 
-    <?php if (isset($hasil_enkripsi)): ?>
+    <?php if (isset($hasil_enkripsi)) : ?>
         <h3>Hasil Enkripsi:</h3>
         <p>Plainteks: <?php echo $plaintext; ?></p>
         <p>Kunci: <?php echo $kunci; ?></p>
         <p>Hasil Enkripsi: <?php echo implode(" ", $hasil_enkripsi); ?></p>
     <?php endif; ?>
 </body>
+
 </html>
